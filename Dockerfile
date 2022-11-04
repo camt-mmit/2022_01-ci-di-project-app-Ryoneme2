@@ -6,6 +6,6 @@ WORKDIR /usr/app/client
 
 COPY . .
 
-RUN yarn install && yarn build
+RUN yarn install
 
-CMD [ "yarn", "start" ]
+CMD [ "yarn", "dev" ]

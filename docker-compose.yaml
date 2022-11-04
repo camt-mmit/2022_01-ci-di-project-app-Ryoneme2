@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  nginx :
+    container_name : proxies
+    build:
+      context : .
+      dockerfile: nginx/Dockerfile
+    ports:
+      - 8080:80
+      - 8082:82
+    networks : 
+      - internal
+  app :
+    container_name: app
+    build : 
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - internal
+  api-02 :
+    container_name: api-02
+    build : 
+      context: .
+      dockerfile: ../my-api/Dockerfile
+    networks:
+      - internal 
+
+networks:
+  internal :
+    driver: bridge
+
