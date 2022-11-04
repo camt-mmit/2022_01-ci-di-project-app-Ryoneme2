@@ -3,7 +3,7 @@ import type { ResponseBook } from '../../@types/types';
 import ListBook from '../../components/ListBook';
 
 const fetch = async (): Promise<ResponseBook | undefined> => {
-  const res = await axios.get('http://localhost:8008/books', {
+  const res = await axios.get('http://api-02:8008/books', {
     headers: {
       Authorization: 'Bearer spicy_token',
     },

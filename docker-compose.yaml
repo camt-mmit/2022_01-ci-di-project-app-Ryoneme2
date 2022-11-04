@@ -23,6 +23,9 @@ services:
     build : 
       context: .
       dockerfile: ../my-api/Dockerfile
+    environment:
+      - PORT=8008
+      - ACCESS_TOKEN=spicy_token
     networks:
       - internal 
 
