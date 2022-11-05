@@ -2,7 +2,6 @@
 import axios, { AxiosError } from 'axios';
 import type { ResponseBook } from '../../@types/types';
 import ListBook from '../../components/ListBook';
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useToken } from '../hooks/tokenStore';
 
@@ -41,7 +40,7 @@ const Page2 = () => {
     const getData = async () => {
       try {
         setLoading(true);
-        const res = await fetch<ResponseBook>('http://localhost:8008/books');
+        const res = await fetch<ResponseBook>('http://api-02:8008/books');
         setData(res);
       } catch (e) {
         console.error(e);
