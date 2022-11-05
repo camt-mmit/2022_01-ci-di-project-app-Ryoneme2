@@ -8,6 +8,7 @@ services:
       dockerfile: nginx/Dockerfile
     ports:
       - 8080:80
+      - 8081:81
       - 8082:82
     networks : 
       - internal
@@ -18,6 +19,13 @@ services:
       dockerfile: Dockerfile
     networks:
       - internal
+  api-01 :
+    container_name: api-02
+    image : mrpachara/api-01-fpm:latest
+    environment:
+      - ACCESS_TOKEN=spicy_token
+    networks:
+      - internal 
   api-02 :
     container_name: api-02
     image : ryoneme2/api-02:lastest
