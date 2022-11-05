@@ -1,13 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { useToken } from '../hooks/tokenStore';
 
 const AccToken = () => {
-  const { token, setToken } = useToken();
+  const [token, setToken] = useState<string>('');
   const handleType = (e: React.ChangeEvent<HTMLInputElement>) => {
     setToken(e.target.value);
-    console.log(token);
+    localStorage.setItem('token', e.target.value || '');
   };
 
   return (

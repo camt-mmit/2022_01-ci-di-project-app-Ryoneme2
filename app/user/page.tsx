@@ -2,7 +2,6 @@
 import axios, { AxiosError } from 'axios';
 import ListUser from '../../components/ListUser';
 import { useEffect, useState } from 'react';
-import { useToken } from '../hooks/tokenStore';
 
 type Response = {
   statusCode: number;
@@ -28,12 +27,11 @@ const isError = (animal: Response | ErrorResponse): animal is ErrorResponse => {
 };
 
 const Page = () => {
-  const { token } = useToken();
   const fetch = async <T,>(
     url: string
   ): Promise<T | undefined | ErrorResponse> => {
     try {
-      console.log(token);
+      const token = localStorage.getItem('token');
       const res = await axios.get<T>(url, {
         headers: {
           Authorization: `Bearer ${token}`,

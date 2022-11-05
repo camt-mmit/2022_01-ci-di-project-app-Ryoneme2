@@ -20,7 +20,7 @@ services:
     networks:
       - internal
   api-01 :
-    container_name: api-02
+    container_name: api-01
     image : mrpachara/api-01-fpm:latest
     environment:
       - ACCESS_TOKEN=spicy_token
