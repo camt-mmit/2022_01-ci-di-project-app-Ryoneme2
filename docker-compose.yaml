@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
   nginx :
@@ -20,9 +20,7 @@ services:
       - internal
   api-02 :
     container_name: api-02
-    build : 
-      context: .
-      dockerfile: ../my-api/Dockerfile
+    image : ryoneme2/api-02:lastest
     environment:
       - PORT=8008
       - ACCESS_TOKEN=spicy_token
