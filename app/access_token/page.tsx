@@ -3,7 +3,9 @@
 import { useState } from 'react';
 
 const AccToken = () => {
-  const [token, setToken] = useState<string>('');
+  const [token, setToken] = useState<string>(
+    localStorage.getItem('token') || ''
+  );
   const handleType = (e: React.ChangeEvent<HTMLInputElement>) => {
     setToken(e.target.value);
     localStorage.setItem('token', e.target.value || '');

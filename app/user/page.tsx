@@ -50,7 +50,7 @@ const Page = () => {
     const getData = async () => {
       try {
         setLoading(true);
-        const res = await fetch<Response>('http://api-01:9000/users');
+        const res = await fetch<Response>('http://localhost:8080/users');
         setData(res);
       } catch (e) {
         console.error(e);

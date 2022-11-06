@@ -40,16 +40,7 @@ const Page2 = () => {
     const getData = async () => {
       try {
         setLoading(true);
-        const res = await fetch<ResponseBook>('http://api-02:8008/books');
-        const res2 = await fetch<ResponseBook>('http://api-02:8082/books');
-        const res3 = await fetch<ResponseBook>('http://api-02:82/books');
-        const res4 = await fetch<ResponseBook>('http://0.0.0.0:8008/books');
-        const res5 = await fetch<ResponseBook>('http://0.0.0.0:8082/books');
-        console.log({ data: res });
-        console.log({ data2: res2 });
-        console.log({ data3: res3 });
-        console.log({ data4: res4 });
-        console.log({ data5: res5 });
+        const res = await fetch<ResponseBook>('http://localhost:8082/books');
         setData(res);
       } catch (e) {
         console.error(e);
