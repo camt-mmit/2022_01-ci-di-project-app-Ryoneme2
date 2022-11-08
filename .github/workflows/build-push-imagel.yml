@@ -43,7 +43,7 @@ jobs:
           context : .
           file : Dockerfile
           push : true
-          tags : ${{ secrets.DOCKER_HUB_USERNAME }}/ryoneme2/cloud-deploy-client_app:latest
+          tags : ${{ secrets.DOCKER_HUB_USERNAME }}/ryoneme2/cloud-deploy-client_app
 
   deploy_gh_pages : 
     name : Deploy to gh-page
