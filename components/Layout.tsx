@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 type Props = {
   children: React.ReactNode;
@@ -10,13 +11,13 @@ const Layout = ({ children }: Props) => {
       <nav className='max-w-[25rem] w-full mb-4'>
         <ul className='list-none flex justify-center items-center m-0 p-0 space-x-4'>
           <li className='text-gray-500 hover:text-gray-700 bg-white shadow hover:shadow-md transition-all cursor-pointer py-2 px-4 rounded-full'>
-            <a href={'/access_token'}>Access token</a>
+            <Link href={'/access_token'}>Access token</Link>
           </li>
           <li className='text-gray-500 hover:text-gray-700 bg-white shadow hover:shadow-md transition-all cursor-pointer py-2 px-4 rounded-full'>
-            <a href={'/user'}>User</a>
+            <Link href={'/user'}>User</Link>
           </li>
           <li className='text-gray-500 hover:text-gray-700 bg-white shadow hover:shadow-md transition-all cursor-pointer py-2 px-4 rounded-full'>
-            <a href={'/book'}>Book</a>
+            <Link href={'/book'}>Book</Link>
           </li>
         </ul>
       </nav>

@@ -48,36 +48,49 @@ const Book = () => {
     getData();
   }, []);
 
-  if (loading) return <>Loading</>;
+  if (loading)
+    return (
+      <>
+        <Layout>Loading</Layout>
+      </>
+    );
 
   if (bookData === undefined)
     return (
       <>
-        <p>{'no data'}</p>
+        <Layout>
+          <p>{'no data'}</p>
+        </Layout>
       </>
     );
   if (
     bookData.data === undefined ||
     bookData.msg.split(':')[0].replace(/\s/g, '') === 'cause'
   )
-    return <small className='text-red-500 text-center'>{bookData.msg}</small>;
+    return (
+      <Layout>
+        <small className='text-red-500 text-center'>{bookData.msg}</small>
+      </Layout>
+    );
 
   return (
     <>
-      <div className='w-full max-w-[35rem]'>
-        <ListBook
-          key={'header'}
-          data={{
-            isbn: 'isbn',
-            title: 'title',
-            author: 'author',
-            price: 'price',
-          }}
-        />
-        {bookData.data.map((v) => (
-          <ListBook key={v.isbn} data={v} />
-        ))}
-      </div>
+      <Layout>
+        <div className='w-full max-w-[35rem]'>
+          <ListBook
+            key={'header'}
+            data={{
+              isbn: 'isbn',
+              title: 'title',
+              author: 'author',
+              price: 'price',
+            }}
+          />
+          {bookData.data.map((v) => (
+            <ListBook key={v.isbn} data={v} />
+          ))}
+        </div>
+      </Layout>
     </>
   );
 };
