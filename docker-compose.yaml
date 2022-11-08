@@ -23,15 +23,15 @@ services:
     container_name: api-01
     image : mrpachara/api-01-fpm:latest
     environment:
-      - ACCESS_TOKEN=spicy_token
+      - ACCESS_TOKEN=${ACCESS_TOKEN}
     networks:
-      - internal 
+      - internal
   api-02 :
     container_name: api-02
     image : ryoneme2/api-02:lastest
     environment:
       - PORT=8008
-      - ACCESS_TOKEN=spicy_token
+      - ACCESS_TOKEN=${ACCESS_TOKEN}
     networks:
       - internal 
 

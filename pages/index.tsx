@@ -1,6 +1,6 @@
 import NavLink from '../components/NavLink';
 
-const Home = () => {
+export default function Home() {
   return (
     <>
       <h1 className='text-xl my-2 font-bold'>How to</h1>
@@ -26,6 +26,4 @@ const Home = () => {
       </ol>
     </>
   );
-};
-
-export default Home;
+}

@@ -1,7 +1,6 @@
-'use client';
 import axios, { AxiosError } from 'axios';
-import type { ResponseBook } from '../../@types/types';
-import ListBook from '../../components/ListBook';
+import type { ResponseBook } from '../@types/types';
+import ListBook from '../components/ListBook';
 import { useEffect, useState } from 'react';
 
 type ErrorType = {
@@ -9,18 +8,15 @@ type ErrorType = {
   msg: string;
 };
 
-const Page2 = () => {
+const Book = () => {
   const fetch = async <T,>(url: string): Promise<T | undefined | ErrorType> => {
     try {
-      const token = localStorage.getItem('token');
+      const token = window.localStorage.getItem('token');
       const res = await axios.get<T>(url, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token || ''}`,
         },
       });
-
-      console.log;
-
       return res.data;
     } catch (e) {
       console.error(e);
@@ -63,7 +59,7 @@ const Page2 = () => {
     bookData.data === undefined ||
     bookData.msg.split(':')[0].replace(/\s/g, '') === 'cause'
   )
-    return <p>{bookData.msg}</p>;
+    return <small className='text-red-500 text-center'>{bookData.msg}</small>;
 
   return (
     <>
@@ -85,4 +81,4 @@ const Page2 = () => {
   );
 };
 
-export default Page2;
+export default Book;
