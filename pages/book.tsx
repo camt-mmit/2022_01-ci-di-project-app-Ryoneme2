@@ -2,6 +2,7 @@ import axios, { AxiosError } from 'axios';
 import type { ResponseBook } from '../@types/types';
 import ListBook from '../components/ListBook';
 import { useEffect, useState } from 'react';
+import Layout from '../components/Layout';
 
 type ErrorType = {
   data: [];
@@ -21,7 +22,7 @@ const Book = () => {
     } catch (e) {
       console.error(e);
       if (e instanceof AxiosError) {
-        const cause = e.response?.data.msg || 'internal error';
+        const cause = e.response?.data.msg || 'error';
         const status = e.code;
         return {
           data: [],

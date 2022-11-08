@@ -2,6 +2,7 @@ import axios, { AxiosError } from 'axios';
 import type { ResponseBook } from '../@types/types';
 import ListUser from '../components/ListUser';
 import { useEffect, useState } from 'react';
+import Layout from '../components/Layout';
 
 type Response = {
   statusCode: number;
@@ -70,7 +71,9 @@ const Book = () => {
   if (loading)
     return (
       <>
-        <div className='animate-spin'>Loading</div>
+        <Layout>
+          <div className='animate-spin'>Loading</div>
+        </Layout>
       </>
     );
 
@@ -83,26 +86,30 @@ const Book = () => {
 
   if (userData.statusCode != 200 && isError(userData))
     return (
-      <small className='text-red-500 text-center'>{`${userData.error.type} : ${userData.error.description}`}</small>
+      <Layout>
+        <small className='text-red-500 text-center'>{`${userData.error.type} : ${userData.error.description}`}</small>
+      </Layout>
     );
 
   if (!isError(userData))
     return (
       <>
-        <div className='w-full max-w-[35rem]'>
-          <ListUser
-            key={'header'}
-            data={{
-              id: 'id',
-              username: 'username',
-              firstName: 'first name',
-              lastName: 'last name',
-            }}
-          />
-          {userData.data.map((v) => (
-            <ListUser key={v.id} data={v} />
-          ))}
-        </div>
+        <Layout>
+          <div className='w-full max-w-[35rem]'>
+            <ListUser
+              key={'header'}
+              data={{
+                id: 'id',
+                username: 'username',
+                firstName: 'first name',
+                lastName: 'last name',
+              }}
+            />
+            {userData.data.map((v) => (
+              <ListUser key={v.id} data={v} />
+            ))}
+          </div>
+        </Layout>
       </>
     );
 };

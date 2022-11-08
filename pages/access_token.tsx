@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Layout from '../components/Layout';
 
 const AccessToken = () => {
   const [token, setToken] = useState<string | null>(
